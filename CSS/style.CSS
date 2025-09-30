@@ -1,0 +1,130 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(98, 184, 77);
+    height: 100vh;
+}
+
+main {
+    width: 370px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    border-radius: 20px;
+    padding: 20px;
+    border: solid black;
+    
+}
+/*
+main::before {
+    content: ''; /* Pseudo-elementos precisam de um 'content' 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../imagens/fundo_tela_snooker.jpg) no-repeat center center;
+    background-size: cover;
+    z-index: -1; /* Coloca o pseudo-elemento atrás do conteúdo do main 
+    opacity: 0.95; /* Valor de 0 (transparente) a 1 (opaco) 
+}
+*/
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    
+}
+
+div#divisor-jogadores {
+    background-color: black;
+    width: 100%;
+    border: solid black;
+}
+
+div.placar {
+    width: 70%;
+    height: 200px;
+    /* background-color: rgb(48, 48, 48); */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+div.placar > h2 {
+    font-size: 100px;
+    /* color: white; */
+}
+
+div.agrupa-containers-btn {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+div.container-botoes-bolinhas {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+div.seq-bolinhas {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+div.seq-bolinhas > p {
+    color: white;
+    font-weight: bolder;
+}
+
+div#soma-vermelha-1, div#soma-vermelha-2, div#sub-vermelha-1, div#sub-vermelha-2{
+    background-color: rgba(216, 17, 17, 0.815);
+}
+
+div#soma-amarela-1, div#soma-amarela-2, div#sub-amarela-1, div#sub-amarela-2{
+    background-color: rgb(248, 244, 24);
+    color: black;
+}
+
+div#soma-amarela-1 > p, div#soma-amarela-2 > p, div#sub-amarela-1 > p, div#sub-amarela-2 > p{
+    color: black;
+}
+
+
+div#soma-verde-1, div#soma-verde-2, div#sub-verde-1, div#sub-verde-2{
+    background-color: rgb(4, 102, 9);
+}
+
+div#soma-marrom-1, div#soma-marrom-2, div#sub-marrom-1, div#sub-marrom-2{
+    background-color: rgb(92, 58, 13);
+}
+
+div#soma-azul-1, div#soma-azul-2, div#sub-azul-1, div#sub-azul-2{
+    background-color: rgb(20, 2, 121);
+}
+
+div#soma-rosa-1, div#soma-rosa-2, div#sub-rosa-1, div#sub-rosa-2{
+    background-color: rgb(182, 57, 155);
+}
+
+div#soma-preto-1, div#soma-preto-2, div#sub-preto-1, div#sub-preto-2{
+    background-color: rgb(0, 0, 0);
+}
