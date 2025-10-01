@@ -1,5 +1,6 @@
 let conteudoPlacar1 = document.querySelector('h2#conteudo-placar-1')
 let conteudoPlacar2 = document.querySelector('h2#conteudo-placar-2')
+let reiniciaJogo = document.getElementById('reiniciar')
 let somaVermelha1 = document.getElementById('soma-vermelha-1') 
 let somaAmarela1 = document.getElementById('soma-amarela-1')
 let somaVerde1 = document.getElementById('soma-verde-1')
@@ -32,44 +33,159 @@ let subAzul2 = document.getElementById('sub-azul-2')
 let subRosa2 = document.getElementById('sub-rosa-2') 
 let subPreto2 = document.getElementById('sub-preto-2') 
 
+let qtdeVitorias1 = document.getElementById ('qtde-vitorias-1')
+let qtdeVitorias2 = document.getElementById ('qtde-vitorias-2')
+
+function atualizaPlacar1(conteudoPlacar1, valorBolinha) {
+    conteudoPlacar1.innerText = Number(conteudoPlacar1.textContent) + valorBolinha
+    console.log(conteudoPlacar1)
+}
+
+function atualizaPlacar2(conteudoPlacar1, valorBolinha) {
+    conteudoPlacar1.innerText = Number(conteudoPlacar1.textContent) + valorBolinha
+    console.log(conteudoPlacar1)
+}
+
+function zeraPlacar(){
+    conteudoPlacar1.textContent = 0
+    conteudoPlacar2.textContent = 0
+}
+
+reiniciaJogo.addEventListener('click', function(){
+    console.log(Number(conteudoPlacar1.textContent), Number(conteudoPlacar2.textContent))
+    if (Number(conteudoPlacar1.textContent) == 0 && Number(conteudoPlacar2.textContent) == 0)
+        window.alert('o jogo ainda não iniciou!')
+    else if (Number(conteudoPlacar1.textContent) != 0 && Number(conteudoPlacar2.textContent) != 0 && Number(conteudoPlacar1.textContent) == Number(conteudoPlacar2.textContent)) {
+        window.alert(`A partida terminou ${conteudoPlacar1.textContent} a ${conteudoPlacar2.textContent}, não será contabilizada nenhuma vitoria`)
+        zeraPlacar()
+    }
+    else if (Number(conteudoPlacar1.textContent) > Number(conteudoPlacar2.textContent)){
+        alert('O jogador 1 venceu')
+        qtdeVitorias1.textContent = Number(qtdeVitorias1.textContent) + 1
+        zeraPlacar()
+    }else if (Number(conteudoPlacar1.textContent) < Number(conteudoPlacar2.textContent)){
+        alert('O jogador 2 venceu')
+        qtdeVitorias2.textContent = Number(qtdeVitorias2.textContent) + 1
+        zeraPlacar()
+    }
+    
+})
 
 somaVermelha1.addEventListener('click', function() {
-    // conteudoPlacar1.textContent = 0
-    console.log(conteudoPlacar1.textContent)
-    // conteudoPlacar1.innerHTML = `<h2>${Number(conteudoPlacar1.textContent) + 1}</h2>`
+    valorBolinha = Number(somaVermelha1.textContent)
+    atualizaPlacar1(conteudoPlacar1, valorBolinha)
 })
-somaAmarela1.addEventListener('click', somaPlacar())
-somaVerde1.addEventListener('click', somaPlacar())
-somaMarrom1.addEventListener('click', somaPlacar())
-somaAzul1.addEventListener('click', somaPlacar())
-somaRosa1.addEventListener('click', somaPlacar())
-somaPreto1.addEventListener('click', somaPlacar())
-													 
-subVermelha1.addEventListener('click', somaPlacar())
-subAmarela1.addEventListener('click', somaPlacar())
-subVerde1.addEventListener('click', somaPlacar())
-subMarrom1.addEventListener('click', somaPlacar())
-subAzul1.addEventListener('click', somaPlacar())
-subRosa1.addEventListener('click', somaPlacar())
-subPreto1.addEventListener('click', somaPlacar())
-													 
-somaVermelha2.addEventListener('click', somaPlacar())
-somaAmarela2.addEventListener('click', somaPlacar())
-somaVerde2.addEventListener('click', somaPlacar())
-somaMarrom2.addEventListener('click', somaPlacar())
-somaAzul2.addEventListener('click', somaPlacar())
-somaRosa2.addEventListener('click', somaPlacar())
-somaPreto2.addEventListener('click', somaPlacar())
-													 
-subVermelha2.addEventListener('click', somaPlacar())
-subAmarela2.addEventListener('click', somaPlacar())
-subVerde2.addEventListener('click', somaPlacar())
-subMarrom2.addEventListener('click', somaPlacar())
-subAzul2.addEventListener('click', somaPlacar())
-subRosa2.addEventListener('click', somaPlacar())
-subPreto2.addEventListener('click', somaPlacar())
 
-function somaPlacar () {
-    
-}
+somaAmarela1.addEventListener('click', function() {
+    valorBolinha = Number(somaAmarela1.textContent)
+    atualizaPlacar1(conteudoPlacar1, valorBolinha)
+})
+somaVerde1.addEventListener('click', function() {
+    valorBolinha = Number(somaVerde1.textContent)
+    atualizaPlacar1(conteudoPlacar1, valorBolinha)
+})
+somaMarrom1.addEventListener('click', function() {
+    valorBolinha = Number(somaMarrom1.textContent)
+    atualizaPlacar1(conteudoPlacar1, valorBolinha)
+})
+somaAzul1.addEventListener('click', function() {
+    valorBolinha = Number(somaAzul1.textContent)
+    atualizaPlacar1(conteudoPlacar1, valorBolinha)
+})
+somaRosa1.addEventListener('click', function() {
+    valorBolinha = Number(somaRosa1.textContent)
+    atualizaPlacar1(conteudoPlacar1, valorBolinha)
+})
+somaPreto1.addEventListener('click', function() {
+    valorBolinha = Number(somaVermelha1.textContent)
+    atualizaPlacar1(conteudoPlacar1, valorBolinha)
+})
+													 
+subVermelha1.addEventListener('click', function() {
+    valorBolinha = Number(subVermelha1.textContent)
+    atualizaPlacar1(conteudoPlacar1, valorBolinha)
+})
+subAmarela1.addEventListener('click', function() {
+    valorBolinha = Number(subAmarela1.textContent)
+    atualizaPlacar1(conteudoPlacar1, valorBolinha)
+})
+subVerde1.addEventListener('click', function() {
+    valorBolinha = Number(subVerde1.textContent)
+    atualizaPlacar1(conteudoPlacar1, valorBolinha)
+})
+subMarrom1.addEventListener('click', function() {
+    valorBolinha = Number(subMarrom1.textContent)
+    atualizaPlacar1(conteudoPlacar1, valorBolinha)
+})
+subAzul1.addEventListener('click', function() {
+    valorBolinha = Number(subAzul1.textContent)
+    atualizaPlacar1(conteudoPlacar1, valorBolinha)
+})
+subRosa1.addEventListener('click', function() {
+    valorBolinha = Number(subRosa1.textContent)
+    atualizaPlacar1(conteudoPlacar1, valorBolinha)
+})
+subPreto1.addEventListener('click', function() {
+    valorBolinha = Number(subPreto1.textContent)
+    atualizaPlacar1(conteudoPlacar1, valorBolinha)
+})
+													 
+somaVermelha2.addEventListener('click', function() {
+    valorBolinha = Number(somaVermelha2.textContent)
+    atualizaPlacar1(conteudoPlacar2, valorBolinha)
+})
+somaAmarela2.addEventListener('click', function() {
+    valorBolinha = Number(somaAmarela2.textContent)
+    atualizaPlacar1(conteudoPlacar2, valorBolinha)
+})
+somaVerde2.addEventListener('click', function() {
+    valorBolinha = Number(somaVerde2.textContent)
+    atualizaPlacar1(conteudoPlacar2, valorBolinha)
+})
+somaMarrom2.addEventListener('click', function() {
+    valorBolinha = Number(somaMarrom2.textContent)
+    atualizaPlacar1(conteudoPlacar2, valorBolinha)
+})
+somaAzul2.addEventListener('click', function() {
+    valorBolinha = Number(somaAzul2.textContent)
+    atualizaPlacar1(conteudoPlacar2, valorBolinha)
+})
+somaRosa2.addEventListener('click', function() {
+    valorBolinha = Number(somaRosa2.textContent)
+    atualizaPlacar1(conteudoPlacar2, valorBolinha)
+})
+somaPreto2.addEventListener('click', function() {
+    valorBolinha = Number(somaPreto2.textContent)
+    atualizaPlacar1(conteudoPlacar2, valorBolinha)
+})
+													 
+subVermelha2.addEventListener('click', function() {
+    valorBolinha = Number(subVermelha2.textContent)
+    atualizaPlacar1(conteudoPlacar2, valorBolinha)
+})
+subAmarela2.addEventListener('click', function() {
+    valorBolinha = Number(subAmarela2.textContent)
+    atualizaPlacar1(conteudoPlacar2, valorBolinha)
+})
+subVerde2.addEventListener('click', function() {
+    valorBolinha = Number(subVerde2.textContent)
+    atualizaPlacar1(conteudoPlacar2, valorBolinha)
+})
+subMarrom2.addEventListener('click', function() {
+    valorBolinha = Number(subMarrom2.textContent)
+    atualizaPlacar1(conteudoPlacar2, valorBolinha)
+})
+subAzul2.addEventListener('click', function() {
+    valorBolinha = Number(subAzul2.textContent)
+    atualizaPlacar1(conteudoPlacar2, valorBolinha)
+})
+subRosa2.addEventListener('click', function() {
+    valorBolinha = Number(subRosa2.textContent)
+    atualizaPlacar1(conteudoPlacar2, valorBolinha)
+})
+subPreto2.addEventListener('click', function() {
+    valorBolinha = Number(subPreto2.textContent)
+    atualizaPlacar1(conteudoPlacar2, valorBolinha)
+})
+
 

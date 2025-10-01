@@ -24,7 +24,7 @@ main {
     gap: 1.2rem;
     border-radius: 20px;
     padding: 20px;
-    border: solid black;
+    border: 5px solid black;
     /* height: 70vh; */
     
 }
@@ -44,11 +44,33 @@ main::before {
 */
 
 section#cabecalho-main {
+    width: 100%;
+    height: 35px;
+
+}
+
+div#reiniciar {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    height: 35px;
+    cursor: pointer;
+
+}
+
+img#img-reinicio{
+    width: 35px;
+    
+}
+
+section#cabecalho-main {
     display: flex;
     flex-direction: row;
     /* align-items: center; */
     gap: 2rem;    
 }
+
+
 
 section {
     display: flex;
@@ -57,10 +79,11 @@ section {
     gap: 0.7rem;    
 }
 
-div#divisor-jogadores {
+div.divisor-jogadores {
     background-color: black;
     width: 100%;
-    border: solid black;
+    /* border: solid black; */
+    height: 5px;
 }
 
 div.placar {
@@ -99,12 +122,14 @@ div.seq-bolinhas {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-}
-
-div.seq-bolinhas > p {
     color: white;
     font-weight: bolder;
 }
+
+/* div.seq-bolinhas > p {
+    color: white;
+    font-weight: bolder;
+} */
 
 div#soma-vermelha-1, div#soma-vermelha-2, div#sub-vermelha-1, div#sub-vermelha-2{
     background-color: rgba(216, 17, 17, 0.815);
