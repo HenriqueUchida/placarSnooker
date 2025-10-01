@@ -20,12 +20,12 @@ main {
     width: 370px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     gap: 1.2rem;
     border-radius: 20px;
     padding: 20px;
     border: solid black;
-    height: 70vh;
+    /* height: 70vh; */
     
 }
 /*
