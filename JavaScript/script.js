@@ -1,6 +1,8 @@
 let conteudoPlacar1 = document.querySelector('h2#conteudo-placar-1')
 let conteudoPlacar2 = document.querySelector('h2#conteudo-placar-2')
+let indicadorParida = document.getElementById('id-partida')
 let reiniciaJogo = document.getElementById('reiniciar')
+let finalizarJogo = document.getElementById('finalizar')
 let somaVermelha1 = document.getElementById('soma-vermelha-1') 
 let somaAmarela1 = document.getElementById('soma-amarela-1')
 let somaVerde1 = document.getElementById('soma-verde-1')
@@ -35,41 +37,7 @@ let subPreto2 = document.getElementById('sub-preto-2')
 
 let qtdeVitorias1 = document.getElementById ('qtde-vitorias-1')
 let qtdeVitorias2 = document.getElementById ('qtde-vitorias-2')
-
-function atualizaPlacar1(conteudoPlacar1, valorBolinha) {
-    conteudoPlacar1.innerText = Number(conteudoPlacar1.textContent) + valorBolinha
-    console.log(conteudoPlacar1)
-}
-
-function atualizaPlacar2(conteudoPlacar1, valorBolinha) {
-    conteudoPlacar1.innerText = Number(conteudoPlacar1.textContent) + valorBolinha
-    console.log(conteudoPlacar1)
-}
-
-function zeraPlacar(){
-    conteudoPlacar1.textContent = 0
-    conteudoPlacar2.textContent = 0
-}
-
-reiniciaJogo.addEventListener('click', function(){
-    console.log(Number(conteudoPlacar1.textContent), Number(conteudoPlacar2.textContent))
-    if (Number(conteudoPlacar1.textContent) == 0 && Number(conteudoPlacar2.textContent) == 0)
-        window.alert('o jogo ainda não iniciou!')
-    else if (Number(conteudoPlacar1.textContent) != 0 && Number(conteudoPlacar2.textContent) != 0 && Number(conteudoPlacar1.textContent) == Number(conteudoPlacar2.textContent)) {
-        window.alert(`A partida terminou ${conteudoPlacar1.textContent} a ${conteudoPlacar2.textContent}, não será contabilizada nenhuma vitoria`)
-        zeraPlacar()
-    }
-    else if (Number(conteudoPlacar1.textContent) > Number(conteudoPlacar2.textContent)){
-        alert('O jogador 1 venceu')
-        qtdeVitorias1.textContent = Number(qtdeVitorias1.textContent) + 1
-        zeraPlacar()
-    }else if (Number(conteudoPlacar1.textContent) < Number(conteudoPlacar2.textContent)){
-        alert('O jogador 2 venceu')
-        qtdeVitorias2.textContent = Number(qtdeVitorias2.textContent) + 1
-        zeraPlacar()
-    }
-    
-})
+let qtdeEmpates = 0
 
 somaVermelha1.addEventListener('click', function() {
     valorBolinha = Number(somaVermelha1.textContent)
@@ -97,7 +65,7 @@ somaRosa1.addEventListener('click', function() {
     atualizaPlacar1(conteudoPlacar1, valorBolinha)
 })
 somaPreto1.addEventListener('click', function() {
-    valorBolinha = Number(somaVermelha1.textContent)
+    valorBolinha = Number(somaPreto1.textContent)
     atualizaPlacar1(conteudoPlacar1, valorBolinha)
 })
 													 
@@ -187,5 +155,94 @@ subPreto2.addEventListener('click', function() {
     valorBolinha = Number(subPreto2.textContent)
     atualizaPlacar1(conteudoPlacar2, valorBolinha)
 })
+
+function atualizaPlacar1(conteudoPlacar1, valorBolinha) {
+    if(valorBolinha < 0 && Number(conteudoPlacar1.textContent) < (valorBolinha*-1)){
+        return
+    }
+    else{
+        conteudoPlacar1.textContent = Number(conteudoPlacar1.textContent) + valorBolinha
+    }
+}
+function atualizaPlacar2(conteudoPlacar1, valorBolinha) {
+    if(valorBolinha < 0 && Number(conteudoPlacar1.textContent) < (valorBolinha*-1)) {
+        return
+    }
+    else{
+        conteudoPlacar1.textContent = Number(conteudoPlacar1.textContent) + valorBolinha
+    }    
+}
+
+function zeraPlacar(){
+    conteudoPlacar1.textContent = 0
+    conteudoPlacar2.textContent = 0
+}
+
+function incrementaPartida(){
+    indicadorParida.textContent = Number(indicadorParida.textContent) + 1
+}
+
+function confereVencedor(placarJogador1, placarJogador2){
+    if (placarJogador1 > placarJogador2) {
+        qtdeVitorias1 = qtdeVitorias1 + 1
+    } else if (placarJogador1 < placarJogador2){
+        qtdeVitorias2 = qtdeVitorias2 + 1
+    } else {
+        qtdeEmpates = qtdeEmpates + 1
+    }
+}   
+
+reiniciaJogo.addEventListener('click', function(){
+    if (Number(conteudoPlacar1.textContent) == 0 && Number(conteudoPlacar2.textContent) == 0)
+        window.alert('O jogo ainda não iniciou!')
+    else if (Number(conteudoPlacar1.textContent) != 0 && Number(conteudoPlacar2.textContent) != 0 && Number(conteudoPlacar1.textContent) == Number(conteudoPlacar2.textContent)) {
+        window.alert(`A partida terminou ${conteudoPlacar1.textContent} a ${conteudoPlacar2.textContent}, não será contabilizada nenhuma vitoria`)
+        qtdeEmpates = qtdeEmpates + 1
+        zeraPlacar()
+        incrementaPartida()
+        
+    }
+    else if (Number(conteudoPlacar1.textContent) > Number(conteudoPlacar2.textContent)){
+        alert('O jogador 1 venceu')
+        qtdeVitorias1.textContent = Number(qtdeVitorias1.textContent) + 1
+        console.log('v.jogador 1:', qtdeVitorias1.textContent)
+        zeraPlacar()
+        incrementaPartida()
+    }else if (Number(conteudoPlacar1.textContent) < Number(conteudoPlacar2.textContent)){
+        alert('O jogador 2 venceu')
+        qtdeVitorias2.textContent = Number(qtdeVitorias2.textContent) + 1
+        console.log('v.jogador 2:', qtdeVitorias1.textContent)
+        zeraPlacar()
+        incrementaPartida()
+    }
+    
+})
+
+finalizarJogo.addEventListener('click', function(){
+    if(Number(conteudoPlacar1.textContent) == 0 && Number(conteudoPlacar2.textContent) == 0 && Number(indicadorParida.textContent) == 1){
+        location.reload()
+    } else if (Number(conteudoPlacar1.textContent) == 0 && Number(conteudoPlacar2.textContent) == 0) {
+        indicadorParida.textContent = indicadorParida.textContent - 1
+        console.log('v.jogador 1:', qtdeVitorias1.textContent)
+        alert(`------Resumo da partida------
+Partidas jogadas: ${indicadorParida.textContent} 
+Vitorias Jogador 1: ${qtdeVitorias1.textContent}
+Vitorias Jogador 2: ${qtdeVitorias2.textContent}
+Empates: ${qtdeEmpates}`)
+        location.reload()
+    } else if (Number(conteudoPlacar1.textContent) != 0 || Number(conteudoPlacar2.textContent) != 0) {
+        let placarJogador1 = Number(conteudoPlacar1.textContent)
+        let placarJogador2 = Number(conteudoPlacar2.textContent)
+        confereVencedor(placarJogador1, placarJogador2)
+        alert(`------Resumo da partida------
+Partidas jogadas: ${indicadorParida.textContent} 
+Vitorias Jogador 1: ${qtdeVitorias1.textContent}
+Vitorias Jogador 2: ${qtdeVitorias2.textContent}
+Empates: ${qtdeEmpates}`)
+        location.reload()
+    }    
+})
+
+
 
 
