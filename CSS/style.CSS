@@ -66,12 +66,30 @@ img#img-reinicio, img#img-finalizar{
 } 
 
 
-
 section.jogador {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.7rem;    
+}
+
+div.cabecalho-jogador {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+div.edit-jogador{
+    cursor: pointer; 
+    /* display: none; */
+}
+
+img#lapis-1, img#lapis-2{
+    width: 25px;
+    height: 25px;
+    display: block;
 }
 
 div.divisor-jogadores {

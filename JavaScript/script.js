@@ -1,5 +1,9 @@
 let conteudoPlacar1 = document.querySelector('h2#conteudo-placar-1')
 let conteudoPlacar2 = document.querySelector('h2#conteudo-placar-2')
+let nomeJogador1 = document.getElementById('descricao-jogador-1')
+let nomeJogador2 = document.getElementById('descricao-jogador-2')
+let editarNome1 = document.getElementById('editar-jogador-1')
+let editarNome2 = document.getElementById('editar-jogador-2')
 let indicadorParida = document.getElementById('id-partida')
 let reiniciaJogo = document.getElementById('reiniciar')
 let finalizarJogo = document.getElementById('finalizar')
@@ -38,6 +42,8 @@ let subPreto2 = document.getElementById('sub-preto-2')
 let qtdeVitorias1 = document.getElementById ('qtde-vitorias-1')
 let qtdeVitorias2 = document.getElementById ('qtde-vitorias-2')
 let qtdeEmpates = 0
+
+
 
 somaVermelha1.addEventListener('click', function() {
     valorBolinha = Number(somaVermelha1.textContent)
