@@ -1,11 +1,16 @@
+document.addEventListener('DOMContentLoaded', function(){
+    alert('[ATENÇÃO!] Só será permitido alterar os nomes dos jogadores na primeira rodada!')
+})
 let conteudoPlacar1 = document.querySelector('h2#conteudo-placar-1')
 let conteudoPlacar2 = document.querySelector('h2#conteudo-placar-2')
 let nomeJogador1 = document.getElementById('descricao-jogador-1')
 let nomeJogador2 = document.getElementById('descricao-jogador-2')
+let editarJogador1 = document.getElementById('editar-jogador-1')
+let editarJogador2 = document.getElementById('editar-jogador-2')
 let editarNome1 = document.getElementById('editar-jogador-1')
 let editarNome2 = document.getElementById('editar-jogador-2')
 let indicadorParida = document.getElementById('id-partida')
-let reiniciaJogo = document.getElementById('reiniciar')
+let reiniciaPartida = document.getElementById('reiniciar')
 let finalizarJogo = document.getElementById('finalizar')
 let somaVermelha1 = document.getElementById('soma-vermelha-1') 
 let somaAmarela1 = document.getElementById('soma-amarela-1')
@@ -44,6 +49,23 @@ let qtdeVitorias2 = document.getElementById ('qtde-vitorias-2')
 let qtdeEmpates = 0
 
 
+editarJogador1.addEventListener('click', function() {
+    let novoNome = ''
+    while (novoNome == '') {
+        novoNome = prompt(`Digite o novo nome para o Jogador: ${nomeJogador1.textContent}`)
+    }
+    novoNome = novoNome ?? nomeJogador1.textContent
+    alterarNomeJogador(1, novoNome)
+})
+
+editarJogador2.addEventListener('click', function() {
+    let novoNome = ''
+    while (novoNome == '') {
+        novoNome = prompt(`Digite o novo nome para o Jogador: ${nomeJogador2.textContent}`)
+    }
+    novoNome = novoNome ?? nomeJogador2.textContent
+    alterarNomeJogador(2, novoNome)
+})
 
 somaVermelha1.addEventListener('click', function() {
     valorBolinha = Number(somaVermelha1.textContent)
@@ -162,6 +184,15 @@ subPreto2.addEventListener('click', function() {
     atualizaPlacar1(conteudoPlacar2, valorBolinha)
 })
 
+function alterarNomeJogador(numeroJogador, novoNome) {
+    novoNome = novoNome.trim()
+    if (numeroJogador == 1) {
+        nomeJogador1.textContent = novoNome 
+    } else {
+        nomeJogador2.textContent = novoNome
+    }
+}
+
 function atualizaPlacar1(conteudoPlacar1, valorBolinha) {
     if(valorBolinha < 0 && Number(conteudoPlacar1.textContent) < (valorBolinha*-1)){
         return
@@ -186,6 +217,11 @@ function zeraPlacar(){
 
 function incrementaPartida(){
     indicadorParida.textContent = Number(indicadorParida.textContent) + 1
+    if(Number(indicadorParida.textContent) > 1){
+        editarJogador1.style.display = 'none'
+        editarJogador2.style.display = 'none'
+    }
+    console.log(Number(indicadorParida.textContent))
 }
 
 function confereVencedor(placarJogador1, placarJogador2){
@@ -198,7 +234,7 @@ function confereVencedor(placarJogador1, placarJogador2){
     }
 }   
 
-reiniciaJogo.addEventListener('click', function(){
+reiniciaPartida.addEventListener('click', function(){
     if (Number(conteudoPlacar1.textContent) == 0 && Number(conteudoPlacar2.textContent) == 0)
         window.alert('O jogo ainda não iniciou!')
     else if (Number(conteudoPlacar1.textContent) != 0 && Number(conteudoPlacar2.textContent) != 0 && Number(conteudoPlacar1.textContent) == Number(conteudoPlacar2.textContent)) {
@@ -248,7 +284,3 @@ Empates: ${qtdeEmpates}`)
         location.reload()
     }    
 })
-
-
-
-

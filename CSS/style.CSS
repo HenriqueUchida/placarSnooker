@@ -28,20 +28,6 @@ main {
     /* height: 70vh; */
     
 }
-/*
-main::before {
-    content: ''; /* Pseudo-elementos precisam de um 'content' 
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url(../imagens/fundo_tela_snooker.jpg) no-repeat center center;
-    background-size: cover;
-    z-index: -1; /* Coloca o pseudo-elemento atrás do conteúdo do main 
-    opacity: 0.95; /* Valor de 0 (transparente) a 1 (opaco) 
-}
-*/
 
 
 div#reiniciar, div#finalizar {
@@ -83,7 +69,6 @@ div.cabecalho-jogador {
 
 div.edit-jogador{
     cursor: pointer; 
-    /* display: none; */
 }
 
 img#lapis-1, img#lapis-2{
@@ -93,9 +78,8 @@ img#lapis-1, img#lapis-2{
 }
 
 div.divisor-jogadores {
+    margin: 0px -20px 0px -20px;
     background-color: black;
-    width: 100%;
-    /* border: solid black; */
     height: 5px;
 }
 
