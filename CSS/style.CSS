@@ -161,17 +161,17 @@ div#soma-preto-1, div#soma-preto-2, div#sub-preto-1, div#sub-preto-2{
     body {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        /* align-items: center; */
+        /* justify-content: center; */
         background-color: rgb(98, 184, 77);
-        width: 100vh;
+        width: 900px; 
         height: 100vh;
     }
     main{
         width: 900px;
         display: grid;
         /* border: none; */
-        height: 400px;
+        height: 100%;
         gap: 0.5rem;
         padding: 10px;
     }

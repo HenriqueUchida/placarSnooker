@@ -1,6 +1,6 @@
-document.addEventListener('DOMContentLoaded', function(){
-    alert('[ATENÇÃO!] Só será permitido alterar os nomes dos jogadores na primeira rodada!')
-})
+// document.addEventListener('DOMContentLoaded', function(){
+//     alert('[ATENÇÃO!] Só será permitido alterar os nomes dos jogadores na primeira rodada!')
+// })
 let conteudoPlacar1 = document.querySelector('h2#conteudo-placar-1')
 let conteudoPlacar2 = document.querySelector('h2#conteudo-placar-2')
 let nomeJogador1 = document.getElementById('descricao-jogador-1')
