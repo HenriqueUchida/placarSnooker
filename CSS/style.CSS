@@ -168,16 +168,18 @@ div#soma-preto-1, div#soma-preto-2, div#sub-preto-1, div#sub-preto-2{
         height: 100vh;
     }
     main{
-        width: 900px;
+        width: 735px;
         display: grid;
-        /* border: none; */
-        height: 100%;
+        grid-template-columns: 350px 350px;
+        border: 5px solid black;
+        height: 400px;
         gap: 0.5rem;
         padding: 10px;
     }
 
    section.jogador {
         border: 5px solid black;
+        border-radius: 20px;
    }
 
     section#cabecalho-main {
