@@ -226,11 +226,11 @@ function incrementaPartida(){
 
 function confereVencedor(placarJogador1, placarJogador2){
     if (placarJogador1 > placarJogador2) {
-        qtdeVitorias1 = qtdeVitorias1 + 1
+        qtdeVitorias1 = Number(qtdeVitorias1.textContent) + 1
     } else if (placarJogador1 < placarJogador2){
-        qtdeVitorias2 = qtdeVitorias2 + 1
+        qtdeVitorias2 = Number(qtdeVitorias1.textContent) + 1
     } else {
-        qtdeEmpates = qtdeEmpates + 1
+        qtdeEmpates = Number(qtdeVitorias1.textContent) + 1
     }
 }   
 
