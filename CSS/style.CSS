@@ -181,8 +181,12 @@ div#soma-preto-1, div#soma-preto-2, div#sub-preto-1, div#sub-preto-2{
         border: 5px solid black;
         border-radius: 20px;
         gap: 0;
-   }
+    }
 
+    div.placar {
+        height: 80px
+    }
+    
     section#cabecalho-main {
         grid-column: span 2;
     }
