@@ -24,9 +24,9 @@ let botoes =[
 
 function geraBotoes(){
     let containerBotoes = document.querySelectorAll('.container-botoes-bolinhas');
-    containerBotoes.forEach(criaBotao => {
-        const operacao = criaBotao.dataset.valor;
-        const jogador = criaBotao.dataset.jogador;
+    containerBotoes.forEach(container => {
+        const operacao = container.dataset.valor;
+        const jogador = container.dataset.jogador;
         botoes.forEach(botao => {
             const valorTexto = botao.pontos * operacao
             const criaDivBotao = document.createElement('div');
@@ -34,7 +34,7 @@ function geraBotoes(){
             criaDivBotao.dataset.pontos = valorTexto;
             criaDivBotao.dataset.jogador = jogador;
             criaDivBotao.textContent = valorTexto;
-            criaBotao.appendChild(criaDivBotao);
+            container.appendChild(criaDivBotao);
         });
     });
 };
