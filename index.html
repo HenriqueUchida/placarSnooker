@@ -10,19 +10,19 @@
 <body>
     <main id="placar-da-partida">
         <section id="cabecalho-main">
-            <div id="reiniciar"><img id="img-reinicio" src="./imagens/reinicio.png" alt="botão de reinicio"></div>
+            <div id="reiniciar" class="reinicar"><img id="img-reinicio" class="reinicar" src="./imagens/reinicio.png" alt="botão usado para reiniciar partidas e somar pontos ao jogador ganhador"></div>
             <div id="qtdes-partidas"><h3><span id="id-partida">1</span>° Partida</h3></div>
-            <div id="finalizar"><img id="img-finalizar" src="./imagens/fechar.png" alt="botão de reinicio"></div>
+            <div id="finalizar" class="finalizar"><img id="img-finalizar" class="finalizar" src="./imagens/fechar.png" alt="botão de finalizar o jogo e mostrar resumo das partidas"></div>
         </section>
         <div id="divisor-1" class="divisor-jogadores"></div>
         <section id="jogador-1" class="jogador">
             <div id="cabecalho-jogador-1" class="cabecalho-jogador">
-                <h1 id="descricao-jogador-1">Jogador 1</h1>
-                <div id="editar-jogador-1" class="edit-jogador"><img id="lapis-1" src="./imagens/lapis.png" alt="alterar nome jogador 1"></div>
+                <h1 id="descricao-jogador-1" data-jogador="1">Jogador 1</h1>
+                <div id="editar-jogador-1" class="edit-jogador" data-jogador="1"><img id="lapis-1" class="edit-jogador" data-jogador="1" src="./imagens/lapis.png" alt="alterar nome jogador 1"></div>
             </div>
 
             <div id="container-placar-1" class="placar">
-                <h2 id="conteudo-placar-1">0</h2>
+                <h2 id="conteudo-placar-1" class="conteudo-placar" data-jogador="1">0</h2>
             </div>
 
              <div id="agrupa-containers-1" class="agrupa-containers-btn" data-jogador="1"> <!----Container para conseguir manipular o display -->
@@ -31,17 +31,17 @@
                 <div id="subtrai-pontos-1" class="container-botoes-bolinhas" data-valor="-1" data-jogador="1"> <!---- container para os botões de subtração-->
                 </div>
             </div>
-            <div id="contador-vitorias-1">Vitórias: <span id="qtde-vitorias-1">0</span></div>
+            <div id="contador-vitorias-1" data-jogador="1">Vitórias: <span id="qtde-vitorias-1" data-jogador="1">0</span></div>
         </section>
         <div id="divisor-2" class="divisor-jogadores"></div>
         <section id="jogador-2" class="jogador">
             <div id="cabecalho-jogador-2" class="cabecalho-jogador">
-                <h1 id="descricao-jogador-2">Jogador 2</h1>
-                <div id="editar-jogador-2" class="edit-jogador"><img id="lapis-2" src="./imagens/lapis.png" alt="alterar nome jogador 2"></div>
+                <h1 id="descricao-jogador-2" data-jogador="2">Jogador 2</h1>
+                <div id="editar-jogador-2" class="edit-jogador" data-jogador="2"><img id="lapis-2" class="edit-jogador" data-jogador="2" src="./imagens/lapis.png" alt="alterar nome jogador 2"></div>
             </div>
             
             <div id="container-placar-2" class="placar">
-                <h2 id="conteudo-placar-2">0</h2>
+                <h2 id="conteudo-placar-2" class="conteudo-placar" data-jogador="2">0</h2>
             </div>
             
             <div id="agrupa-containers-2" class="agrupa-containers-btn" data-jogador="2">
@@ -50,9 +50,10 @@
                 <div id="subtrai-pontos-2" class="container-botoes-bolinhas" data-valor="-1" data-jogador="2">
                 </div>
             </div>
-            <div id="contador-vitorias-2">Vitórias: <span id="qtde-vitorias-2">0</span></div>
+            <div id="contador-vitorias-2" data-jogador="2">Vitórias: <span id="qtde-vitorias-2" data-jogador="2">0</span></div>
         </section>
     </main>
     <script src="./JavaScript/script.js"></script>
+    <script src="./JavaScript/regras.js"></script>
 </body>
 </html>

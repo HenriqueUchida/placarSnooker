@@ -123,37 +123,32 @@ div.seq-bolinhas {
     font-weight: bolder;
 }
 
-div#soma-vermelha-1, div#soma-vermelha-2, div#sub-vermelha-1, div#sub-vermelha-2{
+div.cor-vermelha{
     background-color: rgba(216, 17, 17, 0.815);
 }
 
-div#soma-amarela-1, div#soma-amarela-2, div#sub-amarela-1, div#sub-amarela-2{
+div.cor-amarela{
     background-color: rgb(248, 244, 24);
     color: black;
 }
 
-div#soma-amarela-1 > p, div#soma-amarela-2 > p, div#sub-amarela-1 > p, div#sub-amarela-2 > p{
-    color: black;
-}
-
-
-div#soma-verde-1, div#soma-verde-2, div#sub-verde-1, div#sub-verde-2{
+div.cor-verde{
     background-color: rgb(4, 102, 9);
 }
 
-div#soma-marrom-1, div#soma-marrom-2, div#sub-marrom-1, div#sub-marrom-2{
+div.cor-marrom{
     background-color: rgb(92, 58, 13);
 }
 
-div#soma-azul-1, div#soma-azul-2, div#sub-azul-1, div#sub-azul-2{
+div.cor-azul{
     background-color: rgb(20, 2, 121);
 }
 
-div#soma-rosa-1, div#soma-rosa-2, div#sub-rosa-1, div#sub-rosa-2{
+div.cor-rosa{
     background-color: rgb(182, 57, 155);
 }
 
-div#soma-preto-1, div#soma-preto-2, div#sub-preto-1, div#sub-preto-2{
+div.cor-preta{
     background-color: rgb(0, 0, 0);
 }
 
@@ -178,9 +173,6 @@ div#soma-preto-1, div#soma-preto-2, div#sub-preto-1, div#sub-preto-2{
         row-gap: 0rem;
         padding: 10px;
     }
-    /* section#cabecalho-main {
-        height: ;
-    } */
     section.jogador {
         border: 5px solid black;
         border-radius: 20px;
