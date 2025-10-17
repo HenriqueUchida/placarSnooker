@@ -75,8 +75,8 @@ function finalizarJogo(){
         btnFechaResumo.className = 'container-fechar-resumo'
         cabecalhoResumo.innerHTML = '<h3>Resumo do Jogo</h3>';
         conteudoResumo.innerHTML += `<p>Foram jogadas: ${ultimaPartida} partidas</p>`;
-        conteudoResumo.innerHTML += `<p>${jogador1.textContent} venceu: ${vitoriasJogador1.textContent} partidas</p>`;
-        conteudoResumo.innerHTML += `<p>${jogador2.textContent} venceu: ${vitoriasJogador2.textContent} partidas</p>`;
+        conteudoResumo.innerHTML += `<p>${nomejogador1.textContent} venceu: ${vitoriasJogador1.textContent} partidas</p>`;
+        conteudoResumo.innerHTML += `<p>${nomejogador2.textContent} venceu: ${vitoriasJogador2.textContent} partidas</p>`;
         conteudoResumo.innerHTML += `<p>Empates: ${empates}</p>`;
         mensagemResumo.innerHTML = `<div><p>Tire seu print! &#128512;</p><div>`;
         btnFechaResumo.innerHTML = `<button id="fechar-resumo">Continuar</button>`;
@@ -97,18 +97,16 @@ function verficaGanhador(placarJogador1, placarJogador2){
         console.log('Jogo não iniciado');
         return
     }
+    partidasJogadadas.push({partida: `${qtdePartidas.textContent}`, nomeJogador1: `${nomejogador1.textContent}`, pontuacaoJogador1: `${placarJogador1}`, nomeJogador2: `${nomejogador1.textContent}`, pontuacaoJogador2: `${placarJogador2}`});
     if (placarJogador1 == placarJogador2) {
-        partidasJogadadas.push({partida: `${qtdePartidas.textContent}`, nomeJogador1: `${jogador1.textContent}`, pontuacaoJogador1: `${placarJogador1}`, nomeJogador2: `${jogador2.textContent}`, pontuacaoJogador2: `${placarJogador2}`});
         empates += 1;
         qtdePartidas.textContent = Number(qtdePartidas.textContent) + 1;
 
     } else if (placarJogador1 > placarJogador2) {
-        partidasJogadadas.push({partida: `${qtdePartidas.textContent}`, nomeJogador1: `${jogador1.textContent}`, pontuacaoJogador1: `${placarJogador1}`, nomeJogador2: `${jogador2.textContent}`, pontuacaoJogador2: `${placarJogador2}`});
         qtdePartidas.textContent = Number(qtdePartidas.textContent) + 1;
         vitoriasJogador1.textContent = Number(vitoriasJogador1.textContent) + 1;
 
     } else if (placarJogador1 < placarJogador2){
-        partidasJogadadas.push({partida: `${qtdePartidas.textContent}`, nomeJogador1: `${jogador1.textContent}`, pontuacaoJogador1: `${placarJogador1}`, nomeJogador2: `${jogador2.textContent}`, pontuacaoJogador2: `${placarJogador2}`});
         qtdePartidas.textContent = Number(qtdePartidas.textContent) + 1;
         vitoriasJogador2.textContent = Number(vitoriasJogador2.textContent) + 1;
     }
