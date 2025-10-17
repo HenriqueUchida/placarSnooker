@@ -16,6 +16,17 @@ body {
     height: 100vh;
 }
 
+#overlay {
+    display: none;
+    position: fixed; /* Fica fixo na tela, mesmo com scroll */
+    top: 0;
+    left: 0;
+    width: 100%;     /* Ocupa toda a largura */
+    height: 100%;    /* Ocupa toda a altura */
+    background-color: rgba(0, 0, 0, 0.7); /* Preto com 70% de opacidade */
+    z-index: 100;    /* Garante que fique acima do <main>, mas abaixo do modal */
+}
+
 main {
     width: 370px;
     display: flex;
@@ -121,6 +132,38 @@ div.seq-bolinhas {
     cursor: pointer;
     color: white;
     font-weight: bolder;
+}
+
+div.resumo {
+    /* height: 120px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 10px 10px 10px;
+    position: relative;
+    z-index: 101;
+    background-color: lightgray;
+    border-radius: 20px;
+    top: -50%;
+    gap: 5px;
+}
+
+div.resumo > p {
+    margin: 0px 10px;
+}
+
+div.container-fechar-resumo {
+    width: 80%;
+    display: flex;
+    flex-direction: row-reverse;
+    column-gap: 10px;
+}
+
+button#fechar-resumo {
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 2px;
 }
 
 div.cor-vermelha{
