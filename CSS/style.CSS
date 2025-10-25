@@ -134,7 +134,7 @@ div.seq-bolinhas {
     font-weight: bolder;
 }
 
-div.resumo {
+div.resumo, div.edicao-de-nomes {
     /* height: 120px; */
     display: flex;
     flex-direction: column;
