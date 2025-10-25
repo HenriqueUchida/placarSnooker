@@ -113,6 +113,8 @@ function verficaGanhador(placarJogador1, placarJogador2){
         qtdePartidas.textContent = Number(qtdePartidas.textContent) + 1;
         vitoriasJogador2.textContent = Number(vitoriasJogador2.textContent) + 1;
     }
+
+    bloqueiaEdicaoNomes(Number(qtdePartidas.textContent));
 }
 
 function editarJogador(jogador){
@@ -193,8 +195,15 @@ function editarJogador(jogador){
     });
 
     overlay.addEventListener('click', cancelarPorOverlay);
+}
 
-
+function bloqueiaEdicaoNomes(numRodada){
+    const botaoEdicao1 = document.querySelector('#editar-jogador-1');
+    const botaoEdicao2 = document.querySelector('#editar-jogador-2');
+    if (numRodada == 2) {
+        botaoEdicao1.style.display = 'none';
+        botaoEdicao2.style.display = 'none';
+    }
 }
 
 document.addEventListener('DOMContentLoaded', criaEventos);
