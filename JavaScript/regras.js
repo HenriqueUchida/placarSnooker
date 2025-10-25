@@ -121,16 +121,16 @@ function editarJogador(jogador){
     const containerComandos = document.createElement('div');
     const cancelaEdicao = document.createElement('button');
     const aplicaEdicao = document.createElement('button');
-    let novoNome = nomeJogador`${jogador}`.textContent
+    // let novoNome = nomeJogador`${jogador}`.textContent
     containerEdicao.className = 'edicao-de-nomes';
     cancelaEdicao.textContent = 'Cancelar';
     aplicaEdicao.textContent = 'Aplicar';
     containerComandos.appendChild(cancelaEdicao, aplicaEdicao);
     containerEdicao.appendChild(containerComandos);
     digitarNome.type = 'text';
-    digitarNome.placeholder = 'digite o nome desejado';
+    digitarNome.placeholder = 'Digite o seu nome';
     if (jogador == 1){
-
+        
     }
 }
 
