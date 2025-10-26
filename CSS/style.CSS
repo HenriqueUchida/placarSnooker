@@ -149,6 +149,28 @@ div.resumo, div.edicao-de-nomes {
     gap: 5px;
 }
 
+
+div#edicao-nome > input{
+    width: 80%;
+    height: 30px;
+    font-size: 1.2rem;
+}
+
+div#edicao-nome > input:focus {
+    outline: none;
+    border-color: rgb(98, 184, 77);
+}
+
+button.continuar:hover {
+    background-color: rgb(8, 184, 8);
+    color: white;
+}
+
+button.cancelar:hover {
+    background-color: red;
+    color: white;
+}
+
 div.resumo > p {
     margin: 0px 10px;
 }
@@ -160,7 +182,7 @@ div.container-fechar-resumo {
     column-gap: 10px;
 }
 
-button#fechar-resumo {
+button.botao-overlay {
     cursor: pointer;
     border-radius: 5px;
     padding: 2px;
@@ -264,7 +286,8 @@ div.cor-preta{
         height: 100%;
     }  
 
-    /* div.divisor-jogadores {
-        display: none;
-    } */
+    div.resumo, div.edicao-de-nomes {
+    top: -25%;
+}
+
 }

@@ -68,6 +68,7 @@ function finalizarJogo(){
         const conteudoResumo = document.createElement('div');
         const mensagemResumo = document.createElement('div');
         const btnFechaResumo = document.createElement('div');
+        btnFechaResumo.classList.add('botao-overlay', 'continuar');
         janelaResumo.className = 'resumo';
         cabecalhoResumo.className = 'cabecalho-resumo';
         conteudoResumo.className = 'conteudo-resumo';
@@ -85,11 +86,12 @@ function finalizarJogo(){
         janelaResumo.appendChild(mensagemResumo);
         janelaResumo.appendChild(btnFechaResumo);
         overlay.style.display = 'block'
-        containerMain.appendChild(janelaResumo);
+        // containerMain.appendChild(janelaResumo);
+        document.querySelector('body').appendChild(janelaResumo);
         const fecharResumo = document.getElementById('fechar-resumo');
         fecharResumo.addEventListener('click', () => {
             window.location.reload();
-        })
+        });
      } else {
         alert('Nenhuma partida foi jogada!');
      }
@@ -120,9 +122,10 @@ function verficaGanhador(placarJogador1, placarJogador2){
 function editarJogador(jogador){
     //let nomejogador1 = document.querySelector('#descricao-jogador-1'); colinha pra não voltar no inicio do codigo
     //let nomejogador2 = document.querySelector('#descricao-jogador-2');
-    const containerMain = document.querySelector('#placar-da-partida');
+    // const containerMain = document.querySelector('#placar-da-partida');
     const containerEdicao = document.createElement('div');
     containerEdicao.className = 'edicao-de-nomes';
+    containerEdicao.id = 'edicao-nome';
     const cabecalhoAlteracao = document.createElement('header');
     // const labelInput = document.createElement('label')
     const digitarNome = document.createElement('input'); //type="text" name="" id="">')
@@ -133,15 +136,18 @@ function editarJogador(jogador){
     const cancelaEdicao = document.createElement('button');
     cancelaEdicao.id = 'cancelar-edicao';
     cancelaEdicao.textContent = 'Cancelar';
+    cancelaEdicao.classList.add('botao-overlay', 'cancelar');
     const aplicaEdicao = document.createElement('button');
     aplicaEdicao.id = 'aplicar-edicao';
     aplicaEdicao.textContent = 'Aplicar';
+    aplicaEdicao.classList.add('botao-overlay', 'continuar');
     containerComandos.appendChild(cancelaEdicao);
     containerComandos.appendChild(aplicaEdicao);
     containerEdicao.appendChild(cabecalhoAlteracao);
     containerEdicao.appendChild(digitarNome);
     containerEdicao.appendChild(containerComandos);
-    containerMain.appendChild(containerEdicao);
+    // containerMain.appendChild(containerEdicao);
+    document.querySelector('body').appendChild(containerEdicao);
     overlay.style.display = 'block';
     
     
@@ -164,7 +170,8 @@ function editarJogador(jogador){
     };
 
     function fecharEdicao() {
-        containerMain.removeChild(containerEdicao);
+        // containerMain.removeChild(containerEdicao);
+        document.querySelector('body').removeChild(containerEdicao);
         overlay.style.display = 'none';
         overlay.removeEventListener('click', cancelarPorOverlay);
     }
