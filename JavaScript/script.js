@@ -39,4 +39,5 @@ function geraBotoes(){
     });
 };
 
+
 document.addEventListener('DOMContentLoaded', geraBotoes());
