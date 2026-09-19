@@ -13,8 +13,31 @@ const jogadores = reactive([
     nome: 'Jogador 2',
     placar: 0
   }
+])
+
+const bolas = [
+    {bolinha: 'vermelha',
+     pontos: 1
+    },
+    {bolinha: 'amarela',
+     pontos: 2
+    },
+    {bolinha: 'verde',
+     pontos: 3
+    },
+    {bolinha: 'marrom',
+     pontos: 4
+    },
+    {bolinha: 'azul',
+     pontos: 5
+    },
+    {bolinha: 'rosa',
+     pontos: 6
+    },
+    {bolinha: 'preta',
+     pontos: 7
+    }
 ]
-)
 
 function somarPontos(jogador, pontos){
   jogador.placar += pontos
@@ -33,7 +56,20 @@ function somarPontos(jogador, pontos){
   <section v-for="jogador in jogadores" :key="jogador.id">
     <h2>{{ jogador.nome }}</h2>
     <p>{{ jogador.placar }}</p>
-    <button @click="somarPontos(jogador, 1)">+1</button>
+
+
+    <div>
+      <button v-for="botao in bolas" @click="somarPontos(jogador, botao.pontos)" :key="botao.pontos">
+        {{ botao.pontos }}
+      </button>
+    </div>
+    <div>
+      <button v-for="botaoNegativo in bolas" @click="somarPontos(jogador, -botaoNegativo.pontos)" :key="botaoNegativo.pontos">
+        {{ -botaoNegativo.pontos}}
+      </button>
+    </div>
+    
+    <!-- <button @click="somarPontos(jogador, 1)">+1</button> -->
   </section>
   <!-- <section>
     <h2>{{ jogadores[0].nome }}</h2>
