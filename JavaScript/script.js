@@ -1,4 +1,4 @@
-let botoes =[
+let botoes = [
     {bolinha: 'vermelha',
      pontos: 1
     },
