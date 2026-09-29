@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue' //reatividade para elemento unitário
+import { ref } from 'vue' //encapsula um valor reativo
 import {reactive} from 'vue' //reatividade para objetos
 
 const jogadores = reactive([
