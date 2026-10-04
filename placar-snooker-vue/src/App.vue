@@ -1,6 +1,6 @@
 <script setup>
-import { ref } from 'vue' //encapsula um valor reativo
 import {reactive} from 'vue' //reatividade para objetos
+import Jogador from './components/Jogador.vue'
 
 const jogadores = reactive([
   {
@@ -15,7 +15,7 @@ const jogadores = reactive([
   }
 ])
 
-const bolas = [
+let bolas = [
     {bolinha: 'vermelha',
      pontos: 1
     },
@@ -39,52 +39,14 @@ const bolas = [
     }
 ]
 
-function somarPontos(jogador, pontos){
-  jogador.placar += pontos
-  // jogador.placar += pontos
-  // console.log(jogador)
-
-
- 
-}
-
 </script>
 
 <template>
   <h1>Placar Snooker</h1>
 
-  <section v-for="jogador in jogadores" :key="jogador.id">
-    <h2>{{ jogador.nome }}</h2>
-    <p>{{ jogador.placar }}</p>
+  <Jogador v-for="jogador in jogadores" :key="jogador.id" :jogador="jogador" :bolas="bolas">
 
-
-    <div>
-      <button v-for="botao in bolas" @click="somarPontos(jogador, botao.pontos)" :key="botao.pontos">
-        {{ botao.pontos }}
-      </button>
-    </div>
-    <div>
-      <button v-for="botaoNegativo in bolas" @click="somarPontos(jogador, -botaoNegativo.pontos)" :key="botaoNegativo.pontos">
-        {{ -botaoNegativo.pontos}}
-      </button>
-    </div>
-    
-    <!-- <button @click="somarPontos(jogador, 1)">+1</button> -->
-  </section>
-  <!-- <section>
-    <h2>{{ jogadores[0].nome }}</h2>
-    <p>{{ jogadores[0].placar }}</p>
-    
-    <button @click="somarPontos(jogadores[0], 1)">+1</button>
-  </section>
- 
-  <section>
-    <h2>{{ jogadores[1].nome }}</h2>
-    <p>{{ jogadores[1].placar }}</p>
-    
-    <button @click="somarPontos(jogadores[1], 1)">+1</button>
-  </section> -->
-
+  </Jogador>
   
 
 </template>
