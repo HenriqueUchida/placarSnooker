@@ -3,18 +3,52 @@ import {reactive} from 'vue' //reatividade para objetos
 import { computed, watch } from 'vue'
 import Jogador from './components/Jogador.vue'
 
-const jogadores = reactive([
-  {
-    id: 1,
-    nome: 'Jogador 1',
-    placar: 0
-  },
-  {
-    id: 2,
-    nome: 'Jogador 2',
-    placar: 0
+// const jogadores = reactive([
+//   {
+//     id: 1,
+//     nome: 'Jogador 1',
+//     placar: 0
+//   },
+//   {
+//     id: 2,
+//     nome: 'Jogador 2',
+//     placar: 0
+//   }
+// ]);
+
+const CHAVE_JOGADORES = 'placar-snooker-jogadores';
+
+function carregarJogadores(){
+  const dadosSalvos = localStorage.getItem(CHAVE_JOGADORES)
+
+  if (dadosSalvos) {
+    try {
+      const jogadoresSalvos = JSON.parse(dadosSalvos)
+
+      if (Array.isArray(jogadoresSalvos)){
+        return jogadoresSalvos
+      }
+    } catch (erro){
+      console.error('Erro ao carregar jogadores:', erro)
+    }
+  } else {
+    return [
+      {
+        id: 1,
+        nome: 'Jogador 1',
+        placar: 0
+      },
+      {
+        id: 2,
+        nome: 'Jogador 2',
+        placar: 0
+      }
+    ]
   }
-]);
+}
+
+const jogadores = reactive(carregarJogadores());
+
 const statusPlacar = computed(() => {
   const placarJogadorUm = jogadores[0].placar
   const placarJogadorDois = jogadores[1].placar
@@ -30,12 +64,14 @@ const statusPlacar = computed(() => {
 });
 
 watch(
-  () => jogadores[0].placar, 
-  (novoPlacar, placarAnterior) => {
-    console.log(
-      `Placar alterado de ${placarAnterior} para ${novoPlacar}`
+  jogadores, 
+  (jogadoresAtulizados) => {
+    localStorage.setItem(
+      CHAVE_JOGADORES,
+      JSON.stringify(jogadoresAtulizados)
     )
-  }
+  },
+  { deep: true}
 )
 
 const bolas = [
@@ -63,7 +99,7 @@ const bolas = [
 ];
 
 function somarPontos(jogador, pontos){
-  if (pontos < 0 && jogador.placar < (pontos*-1)){
+  if (jogador.placar + pontos < 0){
     jogador.placar = 0
   } else {
   jogador.placar += pontos
