@@ -1,6 +1,6 @@
 <script setup>
 import {reactive} from 'vue' //reatividade para objetos
-import { computed } from 'vue'
+import { computed, watch } from 'vue'
 import Jogador from './components/Jogador.vue'
 
 const jogadores = reactive([
@@ -14,7 +14,7 @@ const jogadores = reactive([
     nome: 'Jogador 2',
     placar: 0
   }
-])
+]);
 const statusPlacar = computed(() => {
   const placarJogadorUm = jogadores[0].placar
   const placarJogadorDois = jogadores[1].placar
@@ -27,7 +27,16 @@ const statusPlacar = computed(() => {
   } else {
     return `O ${nomeJogadorDois} está ganhando!`
   }
-})
+});
+
+watch(
+  () => jogadores[0].placar, 
+  (novoPlacar, placarAnterior) => {
+    console.log(
+      `Placar alterado de ${placarAnterior} para ${novoPlacar}`
+    )
+  }
+)
 
 const bolas = [
     {bolinha: 'vermelha',
@@ -51,7 +60,7 @@ const bolas = [
     {bolinha: 'preta',
      pontos: 7
     }
-]
+];
 
 function somarPontos(jogador, pontos){
   if (pontos < 0 && jogador.placar < (pontos*-1)){
@@ -59,16 +68,29 @@ function somarPontos(jogador, pontos){
   } else {
   jogador.placar += pontos
   }
-}
+};
+
+function alterarNome(jogador, novoNome){
+  jogador.nome = novoNome
+};
 
 </script>
 
 <template>
   <h1>Placar Snooker</h1>
   <p>{{ statusPlacar }}</p>
-  <Jogador v-for="jogador in jogadores" :key="jogador.id" :jogador="jogador" :bolas="bolas" @somar-pontos="somarPontos(jogador, $event)">
 
+
+  
+  <Jogador  
+  v-for="jogador in jogadores" 
+  :key="jogador.id" 
+  :jogador="jogador" 
+  :bolas="bolas" 
+  @somar-pontos="somarPontos(jogador, $event)"
+  @alterar-nome="alterarNome(jogador, $event)">
   </Jogador>
+
   
 
 </template>
