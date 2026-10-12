@@ -2,8 +2,10 @@
 const props = defineProps({
     jogador: Object,
     bolas: Array
-})
-console.log(props.bolas)
+});
+
+const emit = defineEmits(['somar-pontos']);
+
 </script>
 
 <template>
@@ -12,10 +14,14 @@ console.log(props.bolas)
         <p>{{ props.jogador.placar }}</p>
 
         <div>
-            <button v-for="bola in props.bolas" :key="bola.pontos">{{ bola.pontos }}</button>
+            <button v-for="bola in props.bolas" :key="bola.pontos" @click="emit('somar-pontos', bola.pontos)">
+                {{ bola.pontos }}
+            </button>
         </div>
         <div>
-            <button v-for="bola in props.bolas" :key="bola.pontosNegativos">{{ -bola.pontos }}</button>
+            <button v-for="bola in props.bolas" :key="bola.pontosNegativos" @click="emit('somar-pontos', -bola.pontos)">
+                {{ -bola.pontos }}
+            </button>
         </div>
     </section>
 </template>

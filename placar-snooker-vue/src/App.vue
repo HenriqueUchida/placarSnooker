@@ -1,5 +1,6 @@
 <script setup>
 import {reactive} from 'vue' //reatividade para objetos
+import { computed } from 'vue'
 import Jogador from './components/Jogador.vue'
 
 const jogadores = reactive([
@@ -14,8 +15,21 @@ const jogadores = reactive([
     placar: 0
   }
 ])
+const statusPlacar = computed(() => {
+  const placarJogadorUm = jogadores[0].placar
+  const placarJogadorDois = jogadores[1].placar
+  const nomeJogadorUm = jogadores[0].nome
+  const nomeJogadorDois = jogadores[1].nome
+  if (placarJogadorUm === placarJogadorDois){
+    return 'O jogo está empatado'
+  } else if (placarJogadorUm > placarJogadorDois){
+    return `O ${nomeJogadorUm} está ganhando!`
+  } else {
+    return `O ${nomeJogadorDois} está ganhando!`
+  }
+})
 
-let bolas = [
+const bolas = [
     {bolinha: 'vermelha',
      pontos: 1
     },
@@ -39,12 +53,20 @@ let bolas = [
     }
 ]
 
+function somarPontos(jogador, pontos){
+  if (pontos < 0 && jogador.placar < (pontos*-1)){
+    jogador.placar = 0
+  } else {
+  jogador.placar += pontos
+  }
+}
+
 </script>
 
 <template>
   <h1>Placar Snooker</h1>
-
-  <Jogador v-for="jogador in jogadores" :key="jogador.id" :jogador="jogador" :bolas="bolas">
+  <p>{{ statusPlacar }}</p>
+  <Jogador v-for="jogador in jogadores" :key="jogador.id" :jogador="jogador" :bolas="bolas" @somar-pontos="somarPontos(jogador, $event)">
 
   </Jogador>
   
