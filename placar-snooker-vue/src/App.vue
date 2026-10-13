@@ -36,16 +36,23 @@ function carregarJogadores(){
       {
         id: 1,
         nome: 'Jogador 1',
-        placar: 0
+        placar: 0,
+        vitorias: 0
       },
       {
         id: 2,
         nome: 'Jogador 2',
-        placar: 0
+        placar: 0,
+        vitorias: 0
       }
     ]
   }
 }
+
+const estatisticas = reactive({
+  partidasJogadas: 0,
+  empates: 0
+})
 
 const jogadores = reactive(carregarJogadores());
 
